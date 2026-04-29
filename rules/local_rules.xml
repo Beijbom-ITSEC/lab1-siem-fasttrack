@@ -1,0 +1,27 @@
+<group name="local,sshd,">
+
+  <!-- Detektera 5 misslyckade SSH-försök inom 2 minuter -->
+  <rule id="100001" level="10" frequency="5" timeframe="120">
+    <if_matched_sid>5710</if_matched_sid>
+    <description>SSH brute force: 5+ misslyckade försök från samma IP</description>
+    <mitre><id>T1110</id></mitre>
+    <group>authentication_failures,</group>
+  </rule>
+
+  <!-- Lyckad login efter misslyckade försök = möjlig kompromiss -->
+  <rule id="100002" level="12">
+    <if_sid>5715</if_sid>
+    <same_source_ip/>
+    <description>Lyckad SSH-login efter upprepade fel — möjlig kompromiss</description>
+    <mitre><id>T1110</id></mitre>
+  </rule>
+
+  <!-- Ny fil skapad i /etc/cron.d (persistence-mönster) -->
+  <rule id="100010" level="12">
+    <if_sid>554</if_sid>
+    <field name="file">/etc/cron.d/</field>
+    <description>Ny fil skapad i /etc/cron.d — möjlig persistence</description>
+    <mitre><id>T1053.003</id></mitre>
+  </rule>
+
+</group>
