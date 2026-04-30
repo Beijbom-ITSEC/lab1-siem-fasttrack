@@ -16,10 +16,8 @@ I den här labben har jag sätt upp en agent för att skicka loggar till en SIEM
 Output och analys från anomalidetektorn — vad hittade modellen?
 <img width="885" height="619" alt="image" src="https://github.com/user-attachments/assets/fcc0ed71-3b72-4728-9883-4d46abd07139" />
 
-Det verkar som att anomaly_detector hittade händelser 2026-04-25 mellan 02:00 till 04:00 och 2026-04-27 mellan klockan 14:00 till 16:00.
+Det var två stora event som hände räknades som anomalis om jag tolkar anomaly_results korrekt. En 26 april mellan 02:00 till 04:00 och en 27 april mellan 14:00 och 16:00. Majoriteten av larmen räknades inte som anomalys i datan men det finns några få events som ses som True anomali events.
 
-När jag går igenom anomaly_results.csv så ser det ut som att händelserna under 25 april inte var falska alarm eftersom det inte var så många händelser vid den tidpunkten och dom som hände inte var anomalys.
-Medans den 27 april finns det en massa händerser med hög severity som kalkylen säger är anomalys.
 
 
 
